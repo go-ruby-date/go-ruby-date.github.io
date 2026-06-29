@@ -1,0 +1,31 @@
+baseURL = "https://go-ruby-date.github.io/"
+title = "go-ruby-date"
+disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[[params.phases]]
+  name = "Julian-day model"
+  status = "ready"
+  blurb = "Dates represented by astronomical Julian day number, the same internal model Ruby's `Date` uses, so arithmetic and conversions match exactly."
+[[params.phases]]
+  name = "Julian→Gregorian reform"
+  status = "ready"
+  blurb = "The configurable reform date (default Italian 1582-10-15), with the missing-days gap handled the way reference Ruby handles it."
+[[params.phases]]
+  name = "strftime formatting"
+  status = "ready"
+  blurb = "The full directive set (`%Y %m %d %H %M %S %j %A %a %B %b %z` …) producing byte-identical output to MRI's `Date#strftime`."
+[[params.phases]]
+  name = "parse & strptime"
+  status = "ready"
+  blurb = "Heuristic `Date.parse` and format-driven `Date.strptime`, accepting the same inputs and raising on the same malformed ones as reference Ruby."
+[[params.phases]]
+  name = "Week-date & ordinal arithmetic"
+  status = "ready"
+  blurb = "ISO week-date (`%G`/`%V`), ordinal (day-of-year) construction, and day/month arithmetic with Ruby's rollover semantics."
+[[params.phases]]
+  name = "Differential oracle & coverage"
+  status = "ready"
+  blurb = "A wide date corpus formatted and parsed both here and by the system `ruby`/`date`, compared byte-for-byte; 100% coverage, gofmt + go vet clean, green across all six 64-bit Go arches and three OSes."
